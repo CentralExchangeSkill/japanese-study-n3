@@ -1,0 +1,255 @@
+<!doctype html>
+<html class="dark" lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Progress Monitoring - N3 Study</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#e6192a",
+              "background-light": "#f8f6f6",
+              "background-dark": "#181112",
+              "card-dark": "#211112",
+              "border-dark": "#38292a"
+            },
+            fontFamily: {
+              display: ["Lexend", "sans-serif"]
+            },
+            borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" }
+          }
+        }
+      };
+    </script>
+    <style>
+      body {
+        font-family: "Lexend", sans-serif;
+      }
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+    </style>
+  </head>
+  <body class="bg-background-dark text-slate-100 antialiased font-display">
+    <div class="flex h-screen overflow-hidden">
+      <aside class="w-64 flex-shrink-0 bg-background-dark border-r border-border-dark flex flex-col">
+        <div class="p-6 flex items-center gap-3">
+          <div class="size-10 bg-primary rounded-lg flex items-center justify-center text-white">
+            <span class="material-symbols-outlined text-2xl">translate</span>
+          </div>
+          <div>
+            <h1 class="text-white text-lg font-bold leading-none">N3 Study</h1>
+            <p class="text-slate-400 text-xs mt-1">Japanese Learning</p>
+          </div>
+        </div>
+        <nav class="flex-1 px-4 py-4 space-y-2 overflow-y-auto scrollbar-hide">
+          <a href="admin-dashboard.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:bg-primary/5 transition-colors cursor-pointer">
+            <span class="material-symbols-outlined text-[20px]">dashboard</span>
+            <p class="text-sm font-medium">Dashboard</p>
+          </a>
+          <a href="students-management.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:bg-primary/5 transition-colors cursor-pointer">
+            <span class="material-symbols-outlined text-[20px]">group</span>
+            <p class="text-sm font-medium">Students</p>
+          </a>
+          <div class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:bg-primary/5 transition-colors cursor-pointer">
+            <span class="material-symbols-outlined text-[20px]">menu_book</span>
+            <p class="text-sm font-medium">Lessons</p>
+          </div>
+          <div class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary">
+            <span class="material-symbols-outlined text-[20px]">monitoring</span>
+            <p class="text-sm font-medium">Progress</p>
+          </div>
+          <div class="mt-auto pt-10">
+            <div class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:bg-primary/5 transition-colors cursor-pointer">
+              <span class="material-symbols-outlined text-[20px]">settings</span>
+              <p class="text-sm font-medium">Settings</p>
+            </div>
+          </div>
+        </nav>
+      </aside>
+
+      <main class="flex-1 flex flex-col overflow-hidden">
+        <header class="h-16 flex items-center justify-between px-8 bg-background-dark border-b border-border-dark">
+          <h2 class="text-white text-lg font-bold">Student Progress Monitoring</h2>
+          <div class="flex items-center gap-6">
+            <button class="flex items-center gap-2 rounded-lg h-9 px-4 bg-primary text-white text-xs font-bold hover:bg-primary/90 transition-colors">
+              <span class="material-symbols-outlined text-sm">download</span>
+              Export CSV
+            </button>
+            <div class="h-8 w-px bg-border-dark"></div>
+            <div class="flex items-center gap-3">
+              <div class="text-right">
+                <p class="text-white text-sm font-semibold">Admin Name</p>
+                <p class="text-slate-400 text-xs">System Administrator</p>
+              </div>
+              <div class="size-10 rounded-full bg-primary/20 flex items-center justify-center border border-primary/30 overflow-hidden">
+                <img alt="Admin" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZNrlCH2AjOBqXrWevKIR3alPVorGjP95YIuZhmAoqMf4wP5TbAkIZI1ld65ewqcYXlo4C-dvUvK4ws8Ia-iHBDnAtj2K_aSkRMYLg283I1kjo77HoSL9raEdu41zrf6NRUMzz3EtfO6TsLDjmifbk5YAHdgLAe463WviegAAoEjRiC-1VnwFWEVkCQWfRyW0eAreTnrRa7tr-eL2u-ee3Mm7TWdAoGrJqz2RbgtSYYeNCqAcBFG2C-1iRA9hOJplvrmSkbjXN9BY" />
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <div class="flex-1 overflow-y-auto p-8 bg-background-dark">
+          <div class="flex items-center justify-between mb-6">
+            <div class="relative w-96">
+              <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-xl">search</span>
+              <input class="w-full bg-card-dark border-border-dark rounded-lg pl-10 pr-4 py-2 text-sm text-slate-100 focus:ring-primary focus:border-primary placeholder:text-slate-600" placeholder="Search students by name or ID..." type="text" />
+            </div>
+            <div class="flex gap-3">
+              <select class="bg-card-dark border-border-dark rounded-lg px-4 py-2 text-sm text-slate-300 focus:ring-primary focus:border-primary">
+                <option>All Batches</option>
+                <option>Batch 2024-A</option>
+                <option>Batch 2024-B</option>
+              </select>
+              <button class="flex items-center gap-2 bg-card-dark border border-border-dark px-4 py-2 rounded-lg text-sm text-slate-300 hover:bg-border-dark/50 transition-colors">
+                <span class="material-symbols-outlined text-lg">filter_list</span>
+                Filters
+              </button>
+            </div>
+          </div>
+
+          <div class="bg-card-dark rounded-xl border border-border-dark overflow-hidden mb-8">
+            <div class="p-6 border-b border-border-dark flex items-center justify-between">
+              <h3 class="text-white font-bold">Detailed Performance Table</h3>
+              <p class="text-xs text-slate-500">Showing 42 active students</p>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="w-full text-left">
+                <thead>
+                  <tr class="bg-background-dark/50 text-slate-400 text-xs uppercase tracking-wider">
+                    <th class="px-6 py-4 font-semibold">Student</th>
+                    <th class="px-6 py-4 font-semibold">Kanji (漢字)</th>
+                    <th class="px-6 py-4 font-semibold">Goi (語彙)</th>
+                    <th class="px-6 py-4 font-semibold">Bunpo (文法)</th>
+                    <th class="px-6 py-4 font-semibold">Last Active</th>
+                    <th class="px-6 py-4 font-semibold text-right">Actions</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-border-dark">
+                  <tr class="hover:bg-primary/5 transition-colors">
+                    <td class="px-6 py-4">
+                      <div class="flex items-center gap-3">
+                        <img alt="Rina" class="size-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8bK3s3hPzdZHnjRu-QsGJDRjUqPd9W4XBWmXsJ9n1yKiaq8jznxo2T7BsDpQLbq6NhpazZWuuIf8OBSjYCpkabp5oy5fWjGBS6oao5rJaEWj1AeXnHgmpzgSmexzxhJjSb3i3Gfa1x33hgqj_6iRYo9mhvWtjAP9I_W8uPlMTlvDuaaAo0hDEnTlQ2KPV6VmyKv1g4hUb1LmOPFpQQZp6MCo5IwtqJES8Fm3W5YmfTz9xtSspgEsk1Yk6KdXG8otRGPDdGyK_ilk" />
+                        <div>
+                          <p class="text-sm font-semibold text-white">Rina Tanaka</p>
+                          <p class="text-[10px] text-slate-500">ID: N3-1042</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="px-6 py-4">
+                      <div class="w-24"><div class="flex justify-between items-center mb-1"><span class="text-[10px] text-primary font-bold">85%</span></div><div class="w-full bg-border-dark h-1.5 rounded-full"><div class="bg-primary h-full rounded-full" style="width: 85%"></div></div></div>
+                    </td>
+                    <td class="px-6 py-4">
+                      <div class="w-24"><div class="flex justify-between items-center mb-1"><span class="text-[10px] text-primary/80 font-bold">70%</span></div><div class="w-full bg-border-dark h-1.5 rounded-full"><div class="bg-primary/80 h-full rounded-full" style="width: 70%"></div></div></div>
+                    </td>
+                    <td class="px-6 py-4">
+                      <div class="w-24"><div class="flex justify-between items-center mb-1"><span class="text-[10px] text-primary/60 font-bold">65%</span></div><div class="w-full bg-border-dark h-1.5 rounded-full"><div class="bg-primary/60 h-full rounded-full" style="width: 65%"></div></div></div>
+                    </td>
+                    <td class="px-6 py-4 text-sm text-slate-400">2 mins ago</td>
+                    <td class="px-6 py-4 text-right"><button class="text-slate-500 hover:text-white transition-colors"><span class="material-symbols-outlined text-lg">visibility</span></button></td>
+                  </tr>
+                  <tr class="hover:bg-primary/5 transition-colors">
+                    <td class="px-6 py-4">
+                      <div class="flex items-center gap-3">
+                        <img alt="Kenji" class="size-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDedsuPPqmM2C9s7BDyRMSCMwYBxh6xKeHP-SpQ4fVFlyDHIypsCUbQUZtXQ1IsloTNqfMb40WRgIlzqlg_ALbdBVmPwcxQ8avCNaPSOLQdBiYsev-LJ2J5iwzgTX9G0Ym-rM2DpdOo9FKVWk9cC-QJdgLSMYlcIZBL0dBKLkBFMUzCUw10hIGHNIUNt2wBN4ccapQxvc9nE5JhA84MUAQrJKpeJwiena6DOl70QwKw0ts2-TirdKXnNS7qjvHxAQ0qe5XsQgHGql4" />
+                        <div>
+                          <p class="text-sm font-semibold text-white">Kenji Sato</p>
+                          <p class="text-[10px] text-slate-500">ID: N3-1045</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="px-6 py-4"><div class="w-24"><div class="flex justify-between items-center mb-1"><span class="text-[10px] text-primary font-bold">92%</span></div><div class="w-full bg-border-dark h-1.5 rounded-full"><div class="bg-primary h-full rounded-full" style="width: 92%"></div></div></div></td>
+                    <td class="px-6 py-4"><div class="w-24"><div class="flex justify-between items-center mb-1"><span class="text-[10px] text-primary/80 font-bold">88%</span></div><div class="w-full bg-border-dark h-1.5 rounded-full"><div class="bg-primary/80 h-full rounded-full" style="width: 88%"></div></div></div></td>
+                    <td class="px-6 py-4"><div class="w-24"><div class="flex justify-between items-center mb-1"><span class="text-[10px] text-primary/60 font-bold">95%</span></div><div class="w-full bg-border-dark h-1.5 rounded-full"><div class="bg-primary/60 h-full rounded-full" style="width: 95%"></div></div></div></td>
+                    <td class="px-6 py-4 text-sm text-slate-400">15 mins ago</td>
+                    <td class="px-6 py-4 text-right"><button class="text-slate-500 hover:text-white transition-colors"><span class="material-symbols-outlined text-lg">visibility</span></button></td>
+                  </tr>
+                  <tr class="hover:bg-primary/5 transition-colors bg-primary/5">
+                    <td class="px-6 py-4">
+                      <div class="flex items-center gap-3">
+                        <img alt="Sato" class="size-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFNEg7FULT_6Jm56mnq58LhysJF8Amarrp5ul9Iw2o4ZibFN0mAFuul0MoFMTRscmdqljXu3IAUB7aFnqmtlr7XpaAJZUvwZzsL3VcuikDjLx8Bz0G8F__6RNbHaB2CQ0lbB7022I4vRQU335sDXn3rP1UtQxGtyCwiOeOVmORdjogsPBllMNIs_u_fsNH1lyZvv2QmWbku4gZrovrGOEpROWBNC2HrqdXdqVjsD4go4j13k6RRub_6sjF2StqrC57Q2cVmBQ3pMo" />
+                        <div>
+                          <p class="text-sm font-semibold text-white">Hiroshi Yamamoto</p>
+                          <p class="text-[10px] text-slate-500">ID: N3-1051</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="px-6 py-4"><div class="w-24"><div class="flex justify-between items-center mb-1"><span class="text-[10px] text-primary font-bold">35%</span></div><div class="w-full bg-border-dark h-1.5 rounded-full"><div class="bg-primary h-full rounded-full" style="width: 35%"></div></div></div></td>
+                    <td class="px-6 py-4"><div class="w-24"><div class="flex justify-between items-center mb-1"><span class="text-[10px] text-primary/80 font-bold">40%</span></div><div class="w-full bg-border-dark h-1.5 rounded-full"><div class="bg-primary/80 h-full rounded-full" style="width: 40%"></div></div></div></td>
+                    <td class="px-6 py-4"><div class="w-24"><div class="flex justify-between items-center mb-1"><span class="text-[10px] text-primary/60 font-bold">28%</span></div><div class="w-full bg-border-dark h-1.5 rounded-full"><div class="bg-primary/60 h-full rounded-full" style="width: 28%"></div></div></div></td>
+                    <td class="px-6 py-4 text-sm text-slate-400">3 days ago</td>
+                    <td class="px-6 py-4 text-right"><button class="text-slate-500 hover:text-white transition-colors"><span class="material-symbols-outlined text-lg">visibility</span></button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="p-4 border-t border-border-dark flex items-center justify-between">
+              <p class="text-xs text-slate-500">Page 1 of 4</p>
+              <div class="flex gap-2">
+                <button class="size-8 rounded border border-border-dark flex items-center justify-center text-slate-400 hover:bg-border-dark transition-colors">
+                  <span class="material-symbols-outlined text-sm">chevron_left</span>
+                </button>
+                <button class="size-8 rounded border border-border-dark flex items-center justify-center text-slate-400 hover:bg-border-dark transition-colors">
+                  <span class="material-symbols-outlined text-sm">chevron_right</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-white text-lg font-bold mb-4 flex items-center gap-2"><span class="material-symbols-outlined text-primary">warning</span>Students Need Attention</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div class="bg-card-dark rounded-xl p-5 border-l-4 border-primary shadow-lg">
+                <div class="flex items-start justify-between mb-4">
+                  <div class="flex items-center gap-3">
+                    <div class="size-12 rounded-full border-2 border-primary/30 p-0.5">
+                      <img alt="Sato" class="size-full rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFNEg7FULT_6Jm56mnq58LhysJF8Amarrp5ul9Iw2o4ZibFN0mAFuul0MoFMTRscmdqljXu3IAUB7aFnqmtlr7XpaAJZUvwZzsL3VcuikDjLx8Bz0G8F__6RNbHaB2CQ0lbB7022I4vRQU335sDXn3rP1UtQxGtyCwiOeOVmORdjogsPBllMNIs_u_fsNH1lyZvv2QmWbku4gZrovrGOEpROWBNC2HrqdXdqVjsD4go4j13k6RRub_6sjF2StqrC57Q2cVmBQ3pMo" />
+                    </div>
+                    <div><h4 class="text-white font-bold text-sm">Hiroshi Yamamoto</h4><p class="text-xs text-slate-500">Inactive for 3 days</p></div>
+                  </div>
+                  <span class="text-[10px] px-2 py-0.5 rounded bg-primary/20 text-primary font-bold">LOW PROGRESS</span>
+                </div>
+                <div class="space-y-2 mb-4"><div class="flex justify-between text-[10px] text-slate-400"><span>Overall Progress</span><span class="text-white">34%</span></div><div class="w-full bg-border-dark h-1 rounded-full overflow-hidden"><div class="bg-primary h-full" style="width: 34%"></div></div></div>
+                <button class="w-full py-2 bg-primary/10 hover:bg-primary/20 text-primary text-xs font-bold rounded-lg transition-colors">Send Notification</button>
+              </div>
+
+              <div class="bg-card-dark rounded-xl p-5 border-l-4 border-primary shadow-lg">
+                <div class="flex items-start justify-between mb-4">
+                  <div class="flex items-center gap-3">
+                    <div class="size-12 rounded-full border-2 border-primary/30 p-0.5">
+                      <img alt="Rina" class="size-full rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8bK3s3hPzdZHnjRu-QsGJDRjUqPd9W4XBWmXsJ9n1yKiaq8jznxo2T7BsDpQLbq6NhpazZWuuIf8OBSjYCpkabp5oy5fWjGBS6oao5rJaEWj1AeXnHgmpzgSmexzxhJjSb3i3Gfa1x33hgqj_6iRYo9mhvWtjAP9I_W8uPlMTlvDuaaAo0hDEnTlQ2KPV6VmyKv1g4hUb1LmOPFpQQZp6MCo5IwtqJES8Fm3W5YmfTz9xtSspgEsk1Yk6KdXG8otRGPDdGyK_ilk" />
+                    </div>
+                    <div><h4 class="text-white font-bold text-sm">Yuki Tanaka</h4><p class="text-xs text-slate-500">Failing Bunpo Quizzes</p></div>
+                  </div>
+                  <span class="text-[10px] px-2 py-0.5 rounded bg-primary/20 text-primary font-bold">URGENT</span>
+                </div>
+                <div class="space-y-2 mb-4"><div class="flex justify-between text-[10px] text-slate-400"><span>Bunpo Avg Score</span><span class="text-white">42%</span></div><div class="w-full bg-border-dark h-1 rounded-full overflow-hidden"><div class="bg-primary h-full" style="width: 42%"></div></div></div>
+                <button class="w-full py-2 bg-primary/10 hover:bg-primary/20 text-primary text-xs font-bold rounded-lg transition-colors">Assign Review Material</button>
+              </div>
+
+              <div class="bg-card-dark rounded-xl p-5 border-l-4 border-primary shadow-lg">
+                <div class="flex items-start justify-between mb-4">
+                  <div class="flex items-center gap-3">
+                    <div class="size-12 rounded-full border-2 border-primary/30 p-0.5 flex items-center justify-center bg-border-dark">
+                      <span class="material-symbols-outlined text-slate-500">person</span>
+                    </div>
+                    <div><h4 class="text-white font-bold text-sm">Takeshi K.</h4><p class="text-xs text-slate-500">Stuck on Kanji Lvl 5</p></div>
+                  </div>
+                  <span class="text-[10px] px-2 py-0.5 rounded bg-primary/20 text-primary font-bold">STALLED</span>
+                </div>
+                <div class="space-y-2 mb-4"><div class="flex justify-between text-[10px] text-slate-400"><span>Topic Mastery</span><span class="text-white">12%</span></div><div class="w-full bg-border-dark h-1 rounded-full overflow-hidden"><div class="bg-primary h-full" style="width: 12%"></div></div></div>
+                <button class="w-full py-2 bg-primary/10 hover:bg-primary/20 text-primary text-xs font-bold rounded-lg transition-colors">Reach Out</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
