@@ -1,26 +1,243 @@
 <!doctype html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Admin Dashboard - N3 Study</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700;800&display=swap" rel="stylesheet" />
-  <style>body { font-family: "Lexend", sans-serif; }</style>
-</head>
-<body class="min-h-screen bg-slate-100 text-slate-900">
-  <main class="max-w-5xl mx-auto px-6 py-10">
-    <div class="rounded-2xl bg-white shadow-sm p-8 border border-slate-200">
-      <p class="inline-flex items-center rounded-full bg-red-100 text-red-700 px-3 py-1 text-sm font-semibold">Admin Area</p>
-      <h1 class="mt-4 text-3xl font-extrabold">Admin Dashboard</h1>
-      <p class="mt-2 text-slate-600">Selamat datang, Admin. Kelola pengguna, materi, dan laporan pembelajaran dari halaman ini.</p>
-      <div class="mt-8 grid gap-4 sm:grid-cols-3">
-        <div class="rounded-xl border border-slate-200 p-4"><p class="text-sm text-slate-500">Total Student</p><p class="text-2xl font-bold">128</p></div>
-        <div class="rounded-xl border border-slate-200 p-4"><p class="text-sm text-slate-500">Materi Aktif</p><p class="text-2xl font-bold">42</p></div>
-        <div class="rounded-xl border border-slate-200 p-4"><p class="text-sm text-slate-500">Laporan Baru</p><p class="text-2xl font-bold">7</p></div>
-      </div>
-      <a href="index.html" class="mt-8 inline-block text-red-600 font-semibold hover:underline">← Kembali ke Login</a>
+<html class="dark" lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Admin Dashboard - N3 Study</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#e6192a",
+              "background-light": "#f8f6f6",
+              "background-dark": "#181112",
+              "card-dark": "#211112",
+              "border-dark": "#38292a"
+            },
+            fontFamily: {
+              display: ["Lexend", "sans-serif"]
+            },
+            borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" }
+          }
+        }
+      };
+    </script>
+    <style>
+      body {
+        font-family: "Lexend", sans-serif;
+      }
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+    </style>
+  </head>
+  <body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased font-display">
+    <div class="flex h-screen overflow-hidden">
+      <aside class="w-64 flex-shrink-0 bg-background-light dark:bg-background-dark border-r border-slate-200 dark:border-border-dark flex flex-col">
+        <div class="p-6 flex items-center gap-3">
+          <div class="size-10 bg-primary rounded-lg flex items-center justify-center text-white">
+            <span class="material-symbols-outlined text-2xl">translate</span>
+          </div>
+          <div>
+            <h1 class="text-slate-900 dark:text-white text-lg font-bold leading-none">N3 Study</h1>
+            <p class="text-slate-500 dark:text-slate-400 text-xs mt-1">Japanese Learning</p>
+          </div>
+        </div>
+        <nav class="flex-1 px-4 py-4 space-y-2 overflow-y-auto scrollbar-hide">
+          <div class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary">
+            <span class="material-symbols-outlined">dashboard</span>
+            <p class="text-sm font-medium">Dashboard</p>
+          </div>
+          <div class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-primary/5 transition-colors cursor-pointer">
+            <span class="material-symbols-outlined">group</span>
+            <p class="text-sm font-medium">Students</p>
+          </div>
+          <div class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-primary/5 transition-colors cursor-pointer">
+            <span class="material-symbols-outlined">menu_book</span>
+            <p class="text-sm font-medium">Lessons</p>
+          </div>
+          <div class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-primary/5 transition-colors cursor-pointer">
+            <span class="material-symbols-outlined">monitoring</span>
+            <p class="text-sm font-medium">Progress</p>
+          </div>
+          <div class="mt-auto pt-10">
+            <div class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-primary/5 transition-colors cursor-pointer">
+              <span class="material-symbols-outlined">settings</span>
+              <p class="text-sm font-medium">Settings</p>
+            </div>
+          </div>
+        </nav>
+      </aside>
+
+      <main class="flex-1 flex flex-col overflow-hidden">
+        <header class="h-16 flex items-center justify-between px-8 bg-background-light dark:bg-background-dark border-b border-slate-200 dark:border-border-dark">
+          <h2 class="text-slate-900 dark:text-white text-lg font-bold">Admin Dashboard Overview</h2>
+          <div class="flex items-center gap-6">
+            <div class="flex items-center gap-3">
+              <div class="text-right">
+                <p class="text-slate-900 dark:text-white text-sm font-semibold">Admin Name</p>
+                <p class="text-slate-500 dark:text-slate-400 text-xs">System Administrator</p>
+              </div>
+              <div class="size-10 rounded-full bg-primary/20 flex items-center justify-center border border-primary/30 overflow-hidden">
+                <img class="w-full h-full object-cover" alt="Professional headshot of the system administrator" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZNrlCH2AjOBqXrWevKIR3alPVorGjP95YIuZhmAoqMf4wP5TbAkIZI1ld65ewqcYXlo4C-dvUvK4ws8Ia-iHBDnAtj2K_aSkRMYLg283I1kjo77HoSL9raEdu41zrf6NRUMzz3EtfO6TsLDjmifbk5YAHdgLAe463WviegAAoEjRiC-1VnwFWEVkCQWfRyW0eAreTnrRa7tr-eL2u-ee3Mm7TWdAoGrJqz2RbgtSYYeNCqAcBFG2C-1iRA9hOJplvrmSkbjXN9BY" />
+              </div>
+            </div>
+            <a href="index.html" class="flex items-center justify-center rounded-lg h-9 px-4 bg-primary text-white text-xs font-bold hover:bg-primary/90 transition-colors">Logout</a>
+          </div>
+        </header>
+
+        <div class="flex-1 overflow-y-auto p-8 bg-slate-50 dark:bg-background-dark">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div class="bg-white dark:bg-card-dark rounded-xl p-6 border border-slate-200 dark:border-border-dark flex flex-col gap-2">
+              <div class="flex items-center justify-between mb-2">
+                <span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg">group</span>
+                <span class="text-green-500 text-xs font-bold">+12%</span>
+              </div>
+              <p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Total Students</p>
+              <p class="text-slate-900 dark:text-white text-3xl font-bold">42</p>
+            </div>
+            <div class="bg-white dark:bg-card-dark rounded-xl p-6 border border-slate-200 dark:border-border-dark flex flex-col gap-2">
+              <div class="flex items-center justify-between mb-2">
+                <span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg">import_contacts</span>
+                <span class="text-primary text-xs font-bold">New</span>
+              </div>
+              <p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Total Lessons</p>
+              <p class="text-slate-900 dark:text-white text-3xl font-bold">120</p>
+            </div>
+            <div class="bg-white dark:bg-card-dark rounded-xl p-6 border border-slate-200 dark:border-border-dark flex flex-col gap-2">
+              <div class="flex items-center justify-between mb-2">
+                <span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg">bolt</span>
+                <span class="text-blue-500 text-xs font-bold">Stable</span>
+              </div>
+              <p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Avg Progress</p>
+              <p class="text-slate-900 dark:text-white text-3xl font-bold">63%</p>
+            </div>
+            <div class="bg-white dark:bg-card-dark rounded-xl p-6 border border-slate-200 dark:border-border-dark flex flex-col gap-2">
+              <div class="flex items-center justify-between mb-2">
+                <span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg">history</span>
+                <span class="text-slate-400 text-xs font-bold">Live</span>
+              </div>
+              <p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Active Today</p>
+              <p class="text-slate-900 dark:text-white text-3xl font-bold">18</p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="lg:col-span-2 flex flex-col gap-6">
+              <div class="bg-white dark:bg-card-dark rounded-xl p-6 border border-slate-200 dark:border-border-dark h-full">
+                <h3 class="text-slate-900 dark:text-white text-lg font-bold mb-6">Progress per Category</h3>
+                <div class="space-y-8">
+                  <div class="space-y-3">
+                    <div class="flex justify-between items-center">
+                      <div class="flex items-center gap-3">
+                        <div class="size-2 rounded-full bg-primary"></div>
+                        <span class="text-slate-900 dark:text-slate-200 font-medium text-sm">Kanji (漢字)</span>
+                      </div>
+                      <span class="text-primary font-bold text-sm">70%</span>
+                    </div>
+                    <div class="w-full bg-slate-100 dark:bg-border-dark h-2.5 rounded-full overflow-hidden">
+                      <div class="bg-primary h-full rounded-full" style="width: 70%"></div>
+                    </div>
+                  </div>
+                  <div class="space-y-3">
+                    <div class="flex justify-between items-center">
+                      <div class="flex items-center gap-3">
+                        <div class="size-2 rounded-full bg-primary/60"></div>
+                        <span class="text-slate-900 dark:text-slate-200 font-medium text-sm">Goi (語彙)</span>
+                      </div>
+                      <span class="text-primary/60 font-bold text-sm">50%</span>
+                    </div>
+                    <div class="w-full bg-slate-100 dark:bg-border-dark h-2.5 rounded-full overflow-hidden">
+                      <div class="bg-primary/60 h-full rounded-full" style="width: 50%"></div>
+                    </div>
+                  </div>
+                  <div class="space-y-3">
+                    <div class="flex justify-between items-center">
+                      <div class="flex items-center gap-3">
+                        <div class="size-2 rounded-full bg-primary/80"></div>
+                        <span class="text-slate-900 dark:text-slate-200 font-medium text-sm">Bunpo (文法)</span>
+                      </div>
+                      <span class="text-primary/80 font-bold text-sm">60%</span>
+                    </div>
+                    <div class="w-full bg-slate-100 dark:bg-border-dark h-2.5 rounded-full overflow-hidden">
+                      <div class="bg-primary/80 h-full rounded-full" style="width: 60%"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-12 bg-slate-50 dark:bg-border-dark/30 rounded-lg p-10 flex flex-col items-center justify-center border border-dashed border-slate-300 dark:border-slate-700">
+                  <span class="material-symbols-outlined text-slate-400 dark:text-slate-600 text-4xl mb-2">analytics</span>
+                  <p class="text-slate-500 dark:text-slate-400 text-sm">Weekly Activity Trends Placeholder</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex flex-col gap-6">
+              <div class="bg-white dark:bg-card-dark rounded-xl p-6 border border-slate-200 dark:border-border-dark h-full">
+                <div class="flex items-center justify-between mb-6">
+                  <h3 class="text-slate-900 dark:text-white text-lg font-bold">Recent Activity</h3>
+                  <span class="material-symbols-outlined text-slate-400 dark:text-slate-500 text-xl cursor-pointer">more_vert</span>
+                </div>
+                <div class="space-y-6">
+                  <div class="flex gap-4">
+                    <div class="flex-shrink-0 size-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center">
+                      <img class="size-full rounded-full object-cover" alt="User profile picture of Rina" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8bK3s3hPzdZHnjRu-QsGJDRjUqPd9W4XBWmXsJ9n1yKiaq8jznxo2T7BsDpQLbq6NhpazZWuuIf8OBSjYCpkabp5oy5fWjGBS6oao5rJaEWj1AeXnHgmpzgSmexzxhJjSb3i3Gfa1x33hgqj_6iRYo9mhvWtjAP9I_W8uPlMTlvDuaaAo0hDEnTlQ2KPV6VmyKv1g4hUb1LmOPFpQQZp6MCo5IwtqJES8Fm3W5YmfTz9xtSspgEsk1Yk6KdXG8otRGPDdGyK_ilk" />
+                    </div>
+                    <div class="flex-1">
+                      <p class="text-sm dark:text-slate-200"><span class="font-bold">Rina</span> completed <span class="text-primary font-medium">Kanji Lesson 12</span></p>
+                      <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">2 mins ago</p>
+                    </div>
+                  </div>
+                  <div class="flex gap-4">
+                    <div class="flex-shrink-0 size-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center">
+                      <img class="size-full rounded-full object-cover" alt="User profile picture of Kenji" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDedsuPPqmM2C9s7BDyRMSCMwYBxh6xKeHP-SpQ4fVFlyDHIypsCUbQUZtXQ1IsloTNqfMb40WRgIlzqlg_ALbdBVmPwcxQ8avCNaPSOLQdBiYsev-LJ2J5iwzgTX9G0Ym-rM2DpdOo9FKVWk9cC-QJdgLSMYlcIZBL0dBKLkBFMUzCUw10hIGHNIUNt2wBN4ccapQxvc9nE5JhA84MUAQrJKpeJwiena6DOl70QwKw0ts2-TirdKXnNS7qjvHxAQ0qe5XsQgHGql4" />
+                    </div>
+                    <div class="flex-1">
+                      <p class="text-sm dark:text-slate-200"><span class="font-bold">Kenji</span> scored <span class="text-primary font-medium">95%</span> in Vocabulary Quiz</p>
+                      <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">15 mins ago</p>
+                    </div>
+                  </div>
+                  <div class="flex gap-4">
+                    <div class="flex-shrink-0 size-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+                      <span class="material-symbols-outlined text-sm">add</span>
+                    </div>
+                    <div class="flex-1">
+                      <p class="text-sm dark:text-slate-200"><span class="font-bold">Admin</span> added a new Lesson: <span class="text-primary font-medium">JLPT N3 Grammar Vol 4</span></p>
+                      <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">1 hour ago</p>
+                    </div>
+                  </div>
+                  <div class="flex gap-4">
+                    <div class="flex-shrink-0 size-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center">
+                      <img class="size-full rounded-full object-cover" alt="User profile picture of Sato" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFNEg7FULT_6Jm56mnq58LhysJF8Amarrp5ul9Iw2o4ZibFN0mAFuul0MoFMTRscmdqljXu3IAUB7aFnqmtlr7XpaAJZUvwZzsL3VcuikDjLx8Bz0G8F__6RNbHaB2CQ0lbB7022I4vRQU335sDXn3rP1UtQxGtyCwiOeOVmORdjogsPBllMNIs_u_fsNH1lyZvv2QmWbku4gZrovrGOEpROWBNC2HrqdXdqVjsD4go4j13k6RRub_6sjF2StqrC57Q2cVmBQ3pMo" />
+                    </div>
+                    <div class="flex-1">
+                      <p class="text-sm dark:text-slate-200"><span class="font-bold">Sato</span> joined the N3 study group</p>
+                      <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">3 hours ago</p>
+                    </div>
+                  </div>
+                  <div class="flex gap-4">
+                    <div class="flex-shrink-0 size-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+                      <span class="material-symbols-outlined text-sm">system_update_alt</span>
+                    </div>
+                    <div class="flex-1">
+                      <p class="text-sm dark:text-slate-200"><span class="font-bold">System</span> Daily backup completed successfully</p>
+                      <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">5 hours ago</p>
+                    </div>
+                  </div>
+                </div>
+                <button class="w-full mt-10 py-2.5 text-sm font-bold text-slate-400 dark:text-slate-500 hover:text-primary transition-colors border border-slate-200 dark:border-border-dark rounded-lg">
+                  View All Activity
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
     </div>
-  </main>
-</body>
+  </body>
 </html>
