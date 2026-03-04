@@ -1,0 +1,193 @@
+<!doctype html>
+<html class="dark" lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Lesson Management - N3 Study</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#e6192a",
+              "background-light": "#f8f6f6",
+              "background-dark": "#181112",
+              "card-dark": "#211112",
+              "border-dark": "#38292a"
+            },
+            fontFamily: {
+              display: ["Lexend", "sans-serif"]
+            },
+            borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" }
+          }
+        }
+      };
+    </script>
+    <style>
+      body {
+        font-family: "Lexend", sans-serif;
+      }
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+    </style>
+  </head>
+  <body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased font-display">
+    <div class="flex h-screen overflow-hidden">
+      <aside class="w-64 flex-shrink-0 bg-background-light dark:bg-background-dark border-r border-slate-200 dark:border-border-dark flex flex-col">
+        <div class="p-6 flex items-center gap-3">
+          <div class="size-10 bg-primary rounded-lg flex items-center justify-center text-white">
+            <span class="material-symbols-outlined text-2xl">translate</span>
+          </div>
+          <div>
+            <h1 class="text-slate-900 dark:text-white text-lg font-bold leading-none">N3 Study</h1>
+            <p class="text-slate-500 dark:text-slate-400 text-xs mt-1">Japanese Learning</p>
+          </div>
+        </div>
+        <nav class="flex-1 px-4 py-4 space-y-2 overflow-y-auto scrollbar-hide">
+          <a href="admin-dashboard.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-primary/5 transition-colors cursor-pointer">
+            <span class="material-symbols-outlined">dashboard</span>
+            <p class="text-sm font-medium">Dashboard</p>
+          </a>
+          <a href="students-management.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-primary/5 transition-colors cursor-pointer">
+            <span class="material-symbols-outlined">group</span>
+            <p class="text-sm font-medium">Students</p>
+          </a>
+          <div class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary">
+            <span class="material-symbols-outlined">menu_book</span>
+            <p class="text-sm font-medium">Lessons</p>
+          </div>
+          <a href="progress-monitoring.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-primary/5 transition-colors cursor-pointer">
+            <span class="material-symbols-outlined">monitoring</span>
+            <p class="text-sm font-medium">Progress</p>
+          </a>
+          <div class="mt-auto pt-10">
+            <div class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-primary/5 transition-colors cursor-pointer">
+              <span class="material-symbols-outlined">settings</span>
+              <p class="text-sm font-medium">Settings</p>
+            </div>
+          </div>
+        </nav>
+      </aside>
+      <main class="flex-1 flex flex-col overflow-hidden">
+        <header class="h-16 flex items-center justify-between px-8 bg-background-light dark:bg-background-dark border-b border-slate-200 dark:border-border-dark">
+          <h2 class="text-slate-900 dark:text-white text-lg font-bold">Lesson Management</h2>
+          <div class="flex items-center gap-6">
+            <div class="flex items-center gap-3">
+              <div class="text-right">
+                <p class="text-slate-900 dark:text-white text-sm font-semibold">Admin Name</p>
+                <p class="text-slate-500 dark:text-slate-400 text-xs">System Administrator</p>
+              </div>
+              <div class="size-10 rounded-full bg-primary/20 flex items-center justify-center border border-primary/30 overflow-hidden">
+                <img class="w-full h-full object-cover" alt="Professional headshot of the system administrator" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZNrlCH2AjOBqXrWevKIR3alPVorGjP95YIuZhmAoqMf4wP5TbAkIZI1ld65ewqcYXlo4C-dvUvK4ws8Ia-iHBDnAtj2K_aSkRMYLg283I1kjo77HoSL9raEdu41zrf6NRUMzz3EtfO6TsLDjmifbk5YAHdgLAe463WviegAAoEjRiC-1VnwFWEVkCQWfRyW0eAreTnrRa7tr-eL2u-ee3Mm7TWdAoGrJqz2RbgtSYYeNCqAcBFG2C-1iRA9hOJplvrmSkbjXN9BY" />
+              </div>
+            </div>
+            <a href="index.html" class="flex items-center justify-center rounded-lg h-9 px-4 bg-primary text-white text-xs font-bold hover:bg-primary/90 transition-colors">Logout</a>
+          </div>
+        </header>
+        <div class="flex-1 overflow-y-auto p-8 bg-slate-50 dark:bg-background-dark">
+          <div class="flex items-center justify-between mb-8 border-b border-slate-200 dark:border-border-dark">
+            <div class="flex gap-8">
+              <button class="pb-4 text-sm font-bold border-b-2 border-primary text-primary transition-all">Kanji (漢字)</button>
+              <button class="pb-4 text-sm font-medium border-b-2 border-transparent text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 transition-all">Goi (語彙)</button>
+              <button class="pb-4 text-sm font-medium border-b-2 border-transparent text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 transition-all">Bunpo (文法)</button>
+            </div>
+            <button class="flex items-center gap-2 bg-primary text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-primary/90 transition-colors mb-4">
+              <span class="material-symbols-outlined text-sm">add</span>
+              Add Lesson
+            </button>
+          </div>
+          <div class="bg-white dark:bg-card-dark rounded-xl border border-slate-200 dark:border-border-dark overflow-hidden">
+            <div class="p-6 border-b border-slate-200 dark:border-border-dark flex justify-between items-center bg-white/50 dark:bg-transparent">
+              <h3 class="text-slate-900 dark:text-white font-bold">Kanji Study Materials</h3>
+              <div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400 font-medium">
+                <span class="material-symbols-outlined text-sm">filter_list</span>
+                Sort by: Newest
+              </div>
+            </div>
+            <div class="divide-y divide-slate-200 dark:divide-border-dark">
+              <div class="p-6 flex items-center justify-between hover:bg-slate-50 dark:hover:bg-primary/5 transition-colors group">
+                <div class="flex items-center gap-4">
+                  <div class="size-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary border border-primary/20"><span class="material-symbols-outlined">menu_book</span></div>
+                  <div>
+                    <h4 class="text-slate-900 dark:text-white font-bold text-base">Lesson 1: Common N3 Radicals</h4>
+                    <p class="text-slate-500 dark:text-slate-400 text-xs mt-1">15 Kanji • Duration: 45m</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <button class="p-2 text-primary hover:bg-primary/10 rounded-lg transition-colors" title="Edit"><span class="material-symbols-outlined text-xl">edit</span></button>
+                  <button class="p-2 text-primary hover:bg-primary/10 rounded-lg transition-colors" title="Delete"><span class="material-symbols-outlined text-xl">delete</span></button>
+                </div>
+              </div>
+              <div class="p-6 flex items-center justify-between hover:bg-slate-50 dark:hover:bg-primary/5 transition-colors group">
+                <div class="flex items-center gap-4">
+                  <div class="size-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary border border-primary/20"><span class="material-symbols-outlined">menu_book</span></div>
+                  <div>
+                    <h4 class="text-slate-900 dark:text-white font-bold text-base">Lesson 2: Daily Life &amp; Home</h4>
+                    <p class="text-slate-500 dark:text-slate-400 text-xs mt-1">20 Kanji • Duration: 60m</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <button class="p-2 text-primary hover:bg-primary/10 rounded-lg transition-colors" title="Edit"><span class="material-symbols-outlined text-xl">edit</span></button>
+                  <button class="p-2 text-primary hover:bg-primary/10 rounded-lg transition-colors" title="Delete"><span class="material-symbols-outlined text-xl">delete</span></button>
+                </div>
+              </div>
+              <div class="p-6 flex items-center justify-between hover:bg-slate-50 dark:hover:bg-primary/5 transition-colors group">
+                <div class="flex items-center gap-4">
+                  <div class="size-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary border border-primary/20"><span class="material-symbols-outlined">menu_book</span></div>
+                  <div>
+                    <h4 class="text-slate-900 dark:text-white font-bold text-base">Lesson 3: Transportation &amp; Travel</h4>
+                    <p class="text-slate-500 dark:text-slate-400 text-xs mt-1">18 Kanji • Duration: 50m</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <button class="p-2 text-primary hover:bg-primary/10 rounded-lg transition-colors" title="Edit"><span class="material-symbols-outlined text-xl">edit</span></button>
+                  <button class="p-2 text-primary hover:bg-primary/10 rounded-lg transition-colors" title="Delete"><span class="material-symbols-outlined text-xl">delete</span></button>
+                </div>
+              </div>
+              <div class="p-6 flex items-center justify-between hover:bg-slate-50 dark:hover:bg-primary/5 transition-colors group">
+                <div class="flex items-center gap-4">
+                  <div class="size-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary border border-primary/20"><span class="material-symbols-outlined">menu_book</span></div>
+                  <div>
+                    <h4 class="text-slate-900 dark:text-white font-bold text-base">Lesson 4: Working Environment</h4>
+                    <p class="text-slate-500 dark:text-slate-400 text-xs mt-1">22 Kanji • Duration: 70m</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <button class="p-2 text-primary hover:bg-primary/10 rounded-lg transition-colors" title="Edit"><span class="material-symbols-outlined text-xl">edit</span></button>
+                  <button class="p-2 text-primary hover:bg-primary/10 rounded-lg transition-colors" title="Delete"><span class="material-symbols-outlined text-xl">delete</span></button>
+                </div>
+              </div>
+              <div class="p-6 flex items-center justify-between hover:bg-slate-50 dark:hover:bg-primary/5 transition-colors group">
+                <div class="flex items-center gap-4">
+                  <div class="size-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary border border-primary/20"><span class="material-symbols-outlined">menu_book</span></div>
+                  <div>
+                    <h4 class="text-slate-900 dark:text-white font-bold text-base">Lesson 5: Media &amp; Technology</h4>
+                    <p class="text-slate-500 dark:text-slate-400 text-xs mt-1">16 Kanji • Duration: 40m</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <button class="p-2 text-primary hover:bg-primary/10 rounded-lg transition-colors" title="Edit"><span class="material-symbols-outlined text-xl">edit</span></button>
+                  <button class="p-2 text-primary hover:bg-primary/10 rounded-lg transition-colors" title="Delete"><span class="material-symbols-outlined text-xl">delete</span></button>
+                </div>
+              </div>
+            </div>
+            <div class="p-6 bg-slate-50/50 dark:bg-border-dark/20 flex justify-center">
+              <nav class="flex items-center gap-2">
+                <button class="size-8 rounded border border-slate-200 dark:border-border-dark flex items-center justify-center text-slate-500 dark:text-slate-400 hover:bg-primary hover:text-white transition-colors"><span class="material-symbols-outlined text-sm">chevron_left</span></button>
+                <button class="size-8 rounded bg-primary text-white text-xs font-bold">1</button>
+                <button class="size-8 rounded border border-slate-200 dark:border-border-dark text-slate-500 dark:text-slate-400 text-xs font-medium hover:bg-primary hover:text-white transition-colors">2</button>
+                <button class="size-8 rounded border border-slate-200 dark:border-border-dark text-slate-500 dark:text-slate-400 text-xs font-medium hover:bg-primary hover:text-white transition-colors">3</button>
+                <button class="size-8 rounded border border-slate-200 dark:border-border-dark flex items-center justify-center text-slate-500 dark:text-slate-400 hover:bg-primary hover:text-white transition-colors"><span class="material-symbols-outlined text-sm">chevron_right</span></button>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
