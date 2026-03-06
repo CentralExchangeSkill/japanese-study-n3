@@ -1,26 +1,242 @@
-<!doctype html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Student Dashboard - N3 Study</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700;800&display=swap" rel="stylesheet" />
-  <style>body { font-family: "Lexend", sans-serif; }</style>
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>N3 Student Dashboard Overall Progress</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#e6192a",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#181112",
+                        "neutral-dark": "#2c1f20",
+                        "neutral-muted": "#b89da0",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        body {
+            font-family: 'Lexend', sans-serif;
+        }
+        .sidebar-active {
+            @apply bg-primary/10 text-primary font-semibold;
+        }
+        .sidebar-link {
+            @apply flex items-center gap-3 px-4 py-3 rounded-xl text-neutral-muted hover:bg-primary/5 hover:text-primary transition-all duration-200;
+        }
+    </style>
 </head>
-<body class="min-h-screen bg-rose-50 text-slate-900">
-  <main class="max-w-5xl mx-auto px-6 py-10">
-    <div class="rounded-2xl bg-white shadow-sm p-8 border border-rose-100">
-      <p class="inline-flex items-center rounded-full bg-rose-100 text-rose-700 px-3 py-1 text-sm font-semibold">Student Area</p>
-      <h1 class="mt-4 text-3xl font-extrabold">Student Dashboard</h1>
-      <p class="mt-2 text-slate-600">Selamat datang, Student. Lanjutkan belajar N3 sesuai progress harianmu.</p>
-      <div class="mt-8 grid gap-4 sm:grid-cols-3">
-        <div class="rounded-xl border border-slate-200 p-4"><p class="text-sm text-slate-500">Streak Belajar</p><p class="text-2xl font-bold">12 Hari</p></div>
-        <div class="rounded-xl border border-slate-200 p-4"><p class="text-sm text-slate-500">Kosakata Selesai</p><p class="text-2xl font-bold">320</p></div>
-        <div class="rounded-xl border border-slate-200 p-4"><p class="text-sm text-slate-500">Latihan Hari Ini</p><p class="text-2xl font-bold">10 Menit</p></div>
-      </div>
-      <a href="index.html" class="mt-8 inline-block text-rose-600 font-semibold hover:underline">← Kembali ke Login</a>
-    </div>
-  </main>
-</body>
-</html>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex">
+<aside class="w-64 border-r border-primary/10 bg-background-light dark:bg-background-dark flex flex-col h-screen sticky top-0">
+<div class="p-8 flex items-center gap-3">
+<div class="size-10 bg-primary rounded-lg flex items-center justify-center text-white shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">menu_book</span>
+</div>
+<div>
+<h1 class="text-lg font-bold leading-tight">N3 Mastery</h1>
+<p class="text-[10px] text-neutral-muted uppercase tracking-widest font-semibold">Learning Hub</p>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-1.5 mt-2">
+<a class="sidebar-link sidebar-active" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="sidebar-link" href="#">
+<span class="material-symbols-outlined">translate</span>
+<span>Kanji</span>
+</a>
+<a class="sidebar-link" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span>Goi</span>
+</a>
+<a class="sidebar-link" href="#">
+<span class="material-symbols-outlined">architecture</span>
+<span>Bunpo</span>
+</a>
+</nav>
+<div class="p-4 mt-auto">
+<div class="bg-primary/5 rounded-2xl p-5 border border-primary/10">
+<div class="flex items-center justify-between mb-2">
+<span class="text-[10px] font-bold text-primary uppercase tracking-widest">Mastery Status</span>
+<span class="material-symbols-outlined text-primary text-sm">verified</span>
+</div>
+<p class="text-xs text-neutral-muted mb-4 leading-relaxed">You've mastered 42% of the N3 curriculum.</p>
+<div class="h-1 w-full bg-primary/10 rounded-full mb-4">
+<div class="h-full bg-primary rounded-full w-[42%]"></div>
+</div>
+<button class="w-full py-2.5 bg-primary text-white text-xs font-bold rounded-xl hover:opacity-90 transition-opacity">
+                    View Progress
+                </button>
+</div>
+</div>
+</aside>
+<main class="flex-1 flex flex-col min-w-0 overflow-hidden">
+<header class="h-16 border-b border-primary/10 flex items-center justify-between px-8 bg-background-light/50 dark:bg-background-dark/50 backdrop-blur-md sticky top-0 z-10">
+<div class="flex items-center bg-primary/5 border border-primary/10 rounded-full px-4 py-1.5 gap-2">
+<span class="material-symbols-outlined text-primary text-xl">local_fire_department</span>
+<span class="text-sm font-bold text-primary">7 Day Streak</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-neutral-muted hover:text-primary transition-colors">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="p-2 text-neutral-muted hover:text-primary transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2.5 right-2.5 size-2 bg-primary rounded-full border-2 border-background-dark"></span>
+</button>
+<div class="h-8 w-[1px] bg-primary/10 mx-2"></div>
+<div class="flex items-center gap-3">
+<div class="text-right hidden sm:block">
+<p class="text-sm font-semibold">Sato Kenji</p>
+<p class="text-[10px] text-neutral-muted uppercase tracking-tighter font-medium">N3 Student</p>
+</div>
+<div class="size-10 rounded-full bg-cover bg-center border-2 border-primary/20 ring-2 ring-transparent hover:ring-primary/40 transition-all cursor-pointer" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBCYyLq6Do7vLAdH7b2Rcmdaw1N6IeictWU7XwL8OJstxe9rl_O2xdErSR_ahny9T5ETR94XfViGdT58_0plh0xhGkO86__1XnC1SN5INvlZtviWPye-rVHovjbzV1POEWnn7aIhye_goymGJm6aSzp1tKCDr5bZ6j4i9xeVKIF-c4RtodFf7W2AO6K8fxqCDY8v2Nm8KAFHeppLUbIiXwdNvji8m7qn_QXgN0GK0MXYP-l758xMLdYDKD32FzWUXF0C70yew7ZLdo')"></div>
+</div>
+</div>
+</header>
+<div class="flex-1 overflow-y-auto p-8 space-y-10">
+<section class="flex flex-col md:flex-row md:items-center justify-between gap-6 bg-primary/5 rounded-2xl p-8 border border-primary/10">
+<div class="space-y-2">
+<h2 class="text-3xl font-bold">Okaeri, Kenji! 👋</h2>
+<p class="text-neutral-muted">You're almost at your daily goal. Keep the momentum going!</p>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative size-24">
+<svg class="size-full -rotate-90" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+<circle class="stroke-primary/10" cx="18" cy="18" fill="none" r="16" stroke-width="3"></circle>
+<circle class="stroke-primary" cx="18" cy="18" fill="none" r="16" stroke-dasharray="100" stroke-dashoffset="25" stroke-linecap="round" stroke-width="3"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-xl font-bold">75%</span>
+</div>
+</div>
+<div>
+<p class="text-sm font-semibold">Daily Goal</p>
+<p class="text-xs text-neutral-muted">45/60 mins today</p>
+</div>
+</div>
+</section>
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="group bg-neutral-dark border border-primary/5 rounded-2xl p-6 hover:border-primary/40 transition-all shadow-xl shadow-black/20">
+<div class="flex justify-between items-start mb-4">
+<div class="size-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">translate</span>
+</div>
+<span class="px-2 py-1 rounded bg-primary/20 text-primary text-[10px] font-bold uppercase">Level 5</span>
+</div>
+<h3 class="text-xl font-bold mb-1">Kanji</h3>
+<p class="text-sm text-neutral-muted mb-6">Master the essential 650 Kanji for N3.</p>
+<div class="space-y-2 mb-6">
+<div class="flex justify-between text-xs">
+<span class="text-neutral-muted">Current Level Progress</span>
+<span class="text-primary font-bold">8/10</span>
+</div>
+<div class="h-1.5 w-full bg-primary/10 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 80%;"></div>
+</div>
+<p class="text-[10px] text-neutral-muted italic">ℹ️ 10 Kanji per level</p>
+</div>
+<button class="w-full py-3 bg-primary/10 text-primary hover:bg-primary hover:text-white font-bold rounded-xl transition-all flex items-center justify-center gap-2">
+                        Continue Learning <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<div class="group bg-neutral-dark border border-primary/5 rounded-2xl p-6 hover:border-primary/40 transition-all shadow-xl shadow-black/20">
+<div class="flex justify-between items-start mb-4">
+<div class="size-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">menu_book</span>
+</div>
+<span class="px-2 py-1 rounded bg-primary/20 text-primary text-[10px] font-bold uppercase">Level 8</span>
+</div>
+<h3 class="text-xl font-bold mb-1">Goi (Vocabulary)</h3>
+<p class="text-sm text-neutral-muted mb-6">Expand your lexicon with context-based words.</p>
+<div class="space-y-2 mb-6">
+<div class="flex justify-between text-xs">
+<span class="text-neutral-muted">Current Level Progress</span>
+<span class="text-primary font-bold">12/20</span>
+</div>
+<div class="h-1.5 w-full bg-primary/10 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 60%;"></div>
+</div>
+<p class="text-[10px] text-neutral-muted italic">ℹ️ 20 Words per level</p>
+</div>
+<button class="w-full py-3 bg-primary/10 text-primary hover:bg-primary hover:text-white font-bold rounded-xl transition-all flex items-center justify-center gap-2">
+                        Continue Learning <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<div class="group bg-neutral-dark border border-primary/5 rounded-2xl p-6 hover:border-primary/40 transition-all shadow-xl shadow-black/20">
+<div class="flex justify-between items-start mb-4">
+<div class="size-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">architecture</span>
+</div>
+<span class="px-2 py-1 rounded bg-primary/20 text-primary text-[10px] font-bold uppercase">Level 4</span>
+</div>
+<h3 class="text-xl font-bold mb-1">Bunpo (Grammar)</h3>
+<p class="text-sm text-neutral-muted mb-6">Understand sentence structures and particles.</p>
+<div class="space-y-2 mb-6">
+<div class="flex justify-between text-xs">
+<span class="text-neutral-muted">Current Level Progress</span>
+<span class="text-primary font-bold">1/3</span>
+</div>
+<div class="h-1.5 w-full bg-primary/10 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 33%;"></div>
+</div>
+<p class="text-[10px] text-neutral-muted italic">ℹ️ 3 Grammars per level</p>
+</div>
+<button class="w-full py-3 bg-primary/10 text-primary hover:bg-primary hover:text-white font-bold rounded-xl transition-all flex items-center justify-center gap-2">
+                        Continue Learning <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</section>
+<section class="bg-neutral-dark rounded-2xl p-8 border border-primary/5 shadow-xl">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h3 class="text-xl font-bold">Overall Curriculum Progress</h3>
+<p class="text-sm text-neutral-muted">Comprehensive track of your N3 certification journey</p>
+</div>
+<div class="text-right">
+<span class="text-4xl font-bold text-white leading-none">42%</span>
+<span class="text-primary font-bold ml-1">Complete</span>
+</div>
+</div>
+<div class="space-y-6">
+<div class="relative w-full h-4 bg-primary/10 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full transition-all duration-1000" style="width: 42%;">
+<div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+</div>
+</div>
+<div class="flex flex-wrap items-center justify-between gap-4">
+<div class="flex gap-8">
+<div class="flex flex-col">
+<span class="text-[10px] text-neutral-muted uppercase tracking-widest font-bold">Total Lessons Completed</span>
+<span class="text-2xl font-bold text-white">142</span>
+</div>
+<div class="h-10 w-[1px] bg-primary/10 self-center"></div>
+<div class="flex flex-col">
+<span class="text-[10px] text-neutral-muted uppercase tracking-widest font-bold">Remaining Lessons</span>
+<span class="text-2xl font-bold text-neutral-muted">198</span>
+</div>
+</div>
+<button class="px-6 py-3 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined">analytics</span>
+                            Detailed Breakdown
+                        </button>
+</div>
+</div>
+</section>
+</div>
+</main>
+
+</body></html>
